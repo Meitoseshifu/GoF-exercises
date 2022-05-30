@@ -27,4 +27,5 @@ public class Rectangle extends BaseShape {
         super.paint(graphics);
         graphics.drawRect(x, y, getWidth() - 1, getHeight() - 1);
     }
+
 }

@@ -3,7 +3,7 @@ package ua.happy.learning.behavioral.f_observer.listeners;
 import java.io.File;
 
 public class LogOpenListener implements EventListener {
-    private File log;
+    private final File log;
 
     public LogOpenListener(String fileName) {
         this.log = new File(fileName);
@@ -11,8 +11,7 @@ public class LogOpenListener implements EventListener {
 
     @Override
     public void update(String eventType, File file) {
-        System.out.println("Save to log " + log +
-                ": Someone has performed " + eventType +
-                " operation with the following file: " + file.getName());
+        System.out.printf("Save to log %s: Someone has performed %s operation with the following file: %s%n",
+                log, eventType, file.getName());
     }
 }

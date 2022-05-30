@@ -6,6 +6,8 @@ import ua.happy.learning.structural.a_adapter.round.RoundPeg;
 import ua.happy.learning.structural.a_adapter.square.SquarePeg;
 
 /**
+ * Adapter is a structural design pattern that allows objects with incompatible interfaces to collaborate.
+ *
  * Examples from the real world:
  *  - java.util.Arrays#asList()
  *  - java.util.Collections#list()
@@ -29,14 +31,7 @@ public class Demo {
         // hole.fits(smallSqPeg); // Won't compile.
 
         // Adapter solves the problem.
-        SquarePegAdapter smallSqPegAdapter = new SquarePegAdapter(smallSqPeg);
-        SquarePegAdapter largeSqPegAdapter = new SquarePegAdapter(largeSqPeg);
-        if (hole.fits(smallSqPegAdapter)) {
-            System.out.println("Square peg w2 fits round hole r5.");
-        }
-        if (!hole.fits(largeSqPegAdapter)) {
-            System.out.println("Square peg w20 does not fit into round hole r5.");
-        }
+
     }
 
 }

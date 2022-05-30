@@ -15,8 +15,8 @@ public class Player {
     public Player() {
         this.state = new ReadyState(this);
         setPlaying(true);
-        for (int i = 1; i <= 12; i++) {
-            playlist.add("Track " + i);
+        for (int i = 1; i < 12; i++) {
+            playlist.add("Track " + 1);
         }
     }
 
@@ -59,4 +59,5 @@ public class Player {
     public void setCurrentTrackAfterStop() {
         this.currentTrack = 0;
     }
+
 }

@@ -24,4 +24,5 @@ public class Order {
     public void setClosed() {
         isClosed = true;
     }
+
 }

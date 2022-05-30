@@ -1,6 +1,5 @@
 package ua.happy.learning.behavioral.e_memento.editors;
 
-
 import ua.happy.learning.behavioral.e_memento.commands.ColorCommand;
 import ua.happy.learning.behavioral.e_memento.commands.MoveCommand;
 import ua.happy.learning.behavioral.e_memento.shapes.Shape;
@@ -169,4 +168,5 @@ public class Canvas extends java.awt.Canvas {
 
         graphics.drawImage(buffer, 0, 0, null);
     }
+
 }

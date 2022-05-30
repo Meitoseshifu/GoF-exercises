@@ -22,4 +22,5 @@ public class Title extends JTextField implements Component {
     public String getName() {
         return "Title";
     }
+
 }

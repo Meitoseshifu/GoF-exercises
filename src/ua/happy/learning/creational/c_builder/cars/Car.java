@@ -12,32 +12,23 @@ public class Car {
     private final Type type;
     private final int seats;
     private final Engine engine;
+    private final GPSNavigator gpsNavigator;
     private final Transmission transmission;
     private final TripComputer tripComputer;
-    private final GPSNavigator gpsNavigator;
     private double fuel = 0;
 
-    public Car(Type type, int seats, Engine engine, Transmission transmission,
-               TripComputer tripComputer, GPSNavigator gpsNavigator) {
+    public Car(Type type, int seats, Engine engine, GPSNavigator gpsNavigator,
+               Transmission transmission, TripComputer tripComputer) {
         this.type = type;
         this.seats = seats;
         this.engine = engine;
+        this.gpsNavigator = gpsNavigator;
         this.transmission = transmission;
         this.tripComputer = tripComputer;
-        this.tripComputer.setCar(this);
-        this.gpsNavigator = gpsNavigator;
     }
 
     public Type getType() {
         return type;
-    }
-
-    public double getFuel() {
-        return fuel;
-    }
-
-    public void setFuel(double fuel) {
-        this.fuel = fuel;
     }
 
     public int getSeats() {
@@ -48,6 +39,10 @@ public class Car {
         return engine;
     }
 
+    public GPSNavigator getGpsNavigator() {
+        return gpsNavigator;
+    }
+
     public Transmission getTransmission() {
         return transmission;
     }
@@ -56,7 +51,11 @@ public class Car {
         return tripComputer;
     }
 
-    public GPSNavigator getGpsNavigator() {
-        return gpsNavigator;
+    public double getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(double fuel) {
+        this.fuel = fuel;
     }
 }

@@ -1,10 +1,9 @@
 package ua.happy.learning.behavioral.e_memento.commands;
 
-
 import ua.happy.learning.behavioral.e_memento.editors.Editor;
 import ua.happy.learning.behavioral.e_memento.shapes.Shape;
 
-import java.awt.*;
+import java.awt.Color;
 
 
 public class ColorCommand implements Command {

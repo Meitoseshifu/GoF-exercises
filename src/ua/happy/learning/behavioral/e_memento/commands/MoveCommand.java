@@ -1,6 +1,5 @@
 package ua.happy.learning.behavioral.e_memento.commands;
 
-
 import ua.happy.learning.behavioral.e_memento.editors.Editor;
 import ua.happy.learning.behavioral.e_memento.shapes.Shape;
 
@@ -46,4 +45,5 @@ public class MoveCommand implements Command {
             child.moveBy(endX - startX, endY - startY);
         }
     }
+
 }

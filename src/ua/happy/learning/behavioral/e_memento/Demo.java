@@ -1,6 +1,5 @@
 package ua.happy.learning.behavioral.e_memento;
 
-
 import ua.happy.learning.behavioral.e_memento.editors.Editor;
 import ua.happy.learning.behavioral.e_memento.shapes.Circle;
 import ua.happy.learning.behavioral.e_memento.shapes.CompoundShape;
@@ -9,8 +8,10 @@ import ua.happy.learning.behavioral.e_memento.shapes.Rectangle;
 
 import java.awt.*;
 
-
 /**
+ * Memento is a behavioral design pattern that lets you save and restore the previous state of an object
+ * without revealing the details of its implementation.
+ *
  * Here are some examples of the pattern in core Java libraries:
  *     All java.io.Serializable implementations can simulate the Memento.
  *     All javax.faces.component.StateHolder implementations.

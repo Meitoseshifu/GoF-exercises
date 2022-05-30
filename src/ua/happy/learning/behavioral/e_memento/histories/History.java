@@ -6,12 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class History {
-    private List<Pair> history = new ArrayList<Pair>();
+    private List<Pair> history = new ArrayList<>();
     private int virtualSize = 0;
 
     private class Pair {
         Command command;
         Memento memento;
+
         Pair(Command c, Memento m) {
             command = c;
             memento = m;
@@ -70,4 +71,5 @@ public class History {
         virtualSize = Math.min(history.size(), virtualSize + 1);
         return history.get(virtualSize - 1);
     }
+
 }

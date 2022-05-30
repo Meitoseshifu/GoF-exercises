@@ -3,7 +3,7 @@ package ua.happy.learning.behavioral.f_observer.listeners;
 import java.io.File;
 
 public class EmailNotificationListener implements EventListener {
-    private String email;
+    private final String email;
 
     public EmailNotificationListener(String email) {
         this.email = email;
@@ -11,8 +11,7 @@ public class EmailNotificationListener implements EventListener {
 
     @Override
     public void update(String eventType, File file) {
-        System.out.println("Email to " + email +
-                ": Someone has performed " + eventType +
-                " operation with the following file: " + file.getName());
+        System.out.printf("Email to %s: Someone has performed %s operation with the following file: %s%n",
+                email, eventType, file.getName());
     }
 }

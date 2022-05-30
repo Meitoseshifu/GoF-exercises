@@ -1,10 +1,10 @@
 package ua.happy.learning.creational.a_factory_method;
 
-import ua.happy.learning.creational.a_factory_method.factory.Dialog;
-import ua.happy.learning.creational.a_factory_method.factory.HtmlDialog;
-import ua.happy.learning.creational.a_factory_method.factory.LinuxDialog;
-
-/** More examples of Factory Method:
+/**
+ * Factory Method is a creational design pattern that provides an interface for creating objects in a superclass,
+ * but allows subclasses to alter the type of objects that will be created.
+ *
+ * More examples of Factory Method:
   * java.util.Calendar#getInstance()
   * java.util.ResourceBundle#getBundle()
   * java.text.NumberFormat#getInstance()
@@ -15,31 +15,8 @@ import ua.happy.learning.creational.a_factory_method.factory.LinuxDialog;
  */
 public class Demo {
 
-    private static Dialog dialog;
+   public static void main(String[] args) {
 
-    public static void main(String[] args) {
-        configure();
-        runBusinessLogic();
     }
 
-    /**
-     * The concrete factory is usually chosen depending on configuration or
-     * environment options.
-     */
-    static void configure() {
-        if (System.getProperty("os.name").equals("Linux")) {
-            dialog = new LinuxDialog();
-        } else {
-            dialog = new HtmlDialog();
-        }
-    }
-
-    /**
-     * All of the client code should work with factories and products through
-     * abstract interfaces. This way it does not care which factory it works
-     * with and what kind of product it returns.
-     */
-    static void runBusinessLogic() {
-        dialog.renderWindow();
-    }
 }

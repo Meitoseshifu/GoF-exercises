@@ -9,24 +9,21 @@ public class PlayingState extends State {
 
     @Override
     public String onLock() {
-        player.changeState(new LockedState(player));
-        player.setCurrentTrackAfterStop();
-        return "Stop playing";
+        return null;
     }
 
     @Override
     public String onPlay() {
-        player.changeState(new ReadyState(player));
-        return "Paused...";
+        return null;
     }
 
     @Override
     public String onNext() {
-        return player.nextTrack();
+        return null;
     }
 
     @Override
     public String onPrevious() {
-        return player.previousTrack();
+        return null;
     }
 }

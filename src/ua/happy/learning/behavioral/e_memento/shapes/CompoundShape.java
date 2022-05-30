@@ -183,4 +183,5 @@ public class CompoundShape extends BaseShape {
             child.paint(graphics);
         }
     }
+
 }
