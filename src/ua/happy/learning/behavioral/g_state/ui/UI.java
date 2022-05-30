@@ -12,31 +12,32 @@ public class UI {
     }
 
     public void init() {
-        JFrame frame = new JFrame("Test player");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JPanel context = new JPanel();
-        context.setLayout(new BoxLayout(context, BoxLayout.Y_AXIS));
-        frame.getContentPane().add(context);
-        JPanel buttons = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        context.add(textField);
-        context.add(buttons);
+        JFrame jFrame = new JFrame("Test player");
+        jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel contextJPanel = new JPanel();
+        contextJPanel.setLayout(new BoxLayout(contextJPanel, BoxLayout.Y_AXIS));
+        jFrame.getContentPane().add(contextJPanel);
+        JPanel buttonsJPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        contextJPanel.add(textField);
+        contextJPanel.add(buttonsJPanel);
 
         // Context delegates handling user's input to a state object. Naturally,
         // the outcome will depend on what state is currently active, since all
         // states can handle the input differently.
-        JButton play = new JButton("Play");
-        play.addActionListener(e -> textField.setText(player.getState().onPlay()));
-        JButton stop = new JButton("Stop");
-        stop.addActionListener(e -> textField.setText(player.getState().onLock()));
-        JButton next = new JButton("Next");
-        next.addActionListener(e -> textField.setText(player.getState().onNext()));
-        JButton prev = new JButton("Prev");
-        prev.addActionListener(e -> textField.setText(player.getState().onPrevious()));
-        frame.setVisible(true);
-        frame.setSize(300, 100);
-        buttons.add(play);
-        buttons.add(stop);
-        buttons.add(next);
-        buttons.add(prev);
+
+        JButton playJButton = new JButton("Play");
+        playJButton.addActionListener(al -> textField.setText(player.getState().onPlay()));
+        JButton stopJButton = new JButton("Stop");
+        stopJButton.addActionListener(al -> textField.setText(player.getState().onLock()));
+        JButton nextJButton = new JButton("Next");
+        nextJButton.addActionListener(al -> textField.setText(player.getState().onNext()));
+        JButton prevJButton = new JButton("Prev");
+        prevJButton.addActionListener(ai -> textField.setText(player.getState().onPrevious()));
+        jFrame.setVisible(true);
+        jFrame.setSize(300, 100);
+        buttonsJPanel.add(playJButton);
+        buttonsJPanel.add(stopJButton);
+        buttonsJPanel.add(nextJButton);
+        buttonsJPanel.add(prevJButton);
     }
 }

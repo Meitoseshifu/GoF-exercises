@@ -3,13 +3,12 @@ package ua.happy.learning.creational.a_factory_method.buttons;
 public class HtmlButton implements Button {
 
     @Override
-    public void render() {
-        System.out.println("<button>Test Button</button>");
-        onClick();
+    public void render9() {
+
     }
 
     @Override
     public void onClick() {
-        System.out.println("Click! Button says - 'Hello World!'");
+
     }
 }

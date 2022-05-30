@@ -14,7 +14,7 @@ public class TripComputer {
     }
 
     public void showStatus() {
-        if (this.car.getEngine().isStarted()) {
+        if (car.getEngine().isStarted()) {
             System.out.println("Car is started");
         } else {
             System.out.println("Car isn't started");

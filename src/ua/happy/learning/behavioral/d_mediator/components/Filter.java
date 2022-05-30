@@ -13,6 +13,10 @@ public class Filter extends JTextField implements Component {
 
     public Filter() {}
 
+    public void setList(ListModel listModel) {
+        this.listModel = listModel;
+    }
+
     @Override
     public void setMediator(Mediator mediator) {
         this.mediator = mediator;
@@ -24,16 +28,12 @@ public class Filter extends JTextField implements Component {
         searchElements(start);
     }
 
-    public void setList(ListModel listModel) {
-        this.listModel = listModel;
-    }
-
-    private void searchElements(String s) {
+    private void searchElements(String start) {
         if (listModel == null) {
             return;
         }
 
-        if (s.equals("")) {
+        if (start.equals("")) {
             mediator.setElementsList(listModel);
             return;
         }
@@ -44,7 +44,7 @@ public class Filter extends JTextField implements Component {
         }
         DefaultListModel<Note> listModel = new DefaultListModel<>();
         for (Note note : notes) {
-            if (note.getName().contains(s)) {
+            if (note.getName().contains(start)) {
                 listModel.addElement(note);
             }
         }

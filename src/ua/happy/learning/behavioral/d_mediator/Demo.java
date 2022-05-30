@@ -7,6 +7,10 @@ import ua.happy.learning.behavioral.d_mediator.mediators.Mediator;
 import javax.swing.*;
 
 /**
+ * Mediator is a behavioral design pattern that lets you reduce chaotic dependencies between objects.
+ * The pattern restricts direct communications between the objects and forces them to collaborate only
+ * via a mediator object.
+ *
  * Here are some examples of the pattern in core Java libraries:
  *     java.util.Timer (all scheduleXXX() methods)
  *     java.util.concurrent.Executor#execute()

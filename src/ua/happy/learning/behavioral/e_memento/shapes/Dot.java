@@ -11,17 +11,15 @@ public class Dot extends BaseShape {
 
     @Override
     public int getWidth() {
-        return DOT_SIZE;
+        return 0;
     }
 
     @Override
     public int getHeight() {
-        return DOT_SIZE;
+        return 0;
     }
 
     @Override
     public void paint(Graphics graphics) {
-        super.paint(graphics);
-        graphics.fillRect(x - 1, y - 1, getWidth(), getHeight());
     }
 }

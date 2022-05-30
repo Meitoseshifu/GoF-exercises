@@ -1,7 +1,6 @@
 package ua.happy.learning.structural.b_bridge.remotes;
 
 public interface Remote {
-
     void power();
 
     void volumeDown();
@@ -11,5 +10,4 @@ public interface Remote {
     void channelDown();
 
     void channelUp();
-
 }

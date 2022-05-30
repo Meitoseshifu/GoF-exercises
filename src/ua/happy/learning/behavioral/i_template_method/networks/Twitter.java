@@ -1,11 +1,13 @@
 package ua.happy.learning.behavioral.i_template_method.networks;
 
 public class Twitter extends Network {
+
     public Twitter(String userName, String password) {
         this.userName = userName;
         this.password = password;
     }
 
+    @Override
     public boolean logIn(String userName, String password) {
         System.out.println("\nChecking user's parameters");
         System.out.println("Name: " + this.userName);
@@ -18,6 +20,7 @@ public class Twitter extends Network {
         return true;
     }
 
+    @Override
     public boolean sendData(byte[] data) {
         boolean messagePosted = true;
         if (messagePosted) {
@@ -28,21 +31,12 @@ public class Twitter extends Network {
         }
     }
 
+    @Override
     public void logOut() {
-        System.out.println("User: '" + userName + "' was logged out from Twitter");
     }
 
     private void simulateNetworkLatency() {
-        try {
-            int i = 0;
-            System.out.println();
-            while (i < 10) {
-                System.out.print(".");
-                Thread.sleep(500);
-                i++;
-            }
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }
+
     }
+
 }

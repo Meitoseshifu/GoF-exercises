@@ -13,52 +13,38 @@ public class Editor {
     private final CommandHistory history = new CommandHistory();
 
     public void init() {
-        JFrame frame = new JFrame("Text editor (type & use buttons, Luke!)");
-        JPanel content = new JPanel();
-        frame.setContentPane(content);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
+        JFrame jFrame = new JFrame("Text editor (type & use buttons, Luke!)");
+        JPanel jPanelContent = new JPanel();
+        jFrame.setContentPane(jPanelContent);
+        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        jPanelContent.setLayout(new BoxLayout(jPanelContent, BoxLayout.Y_AXIS));
         textField = new JTextArea();
         textField.setLineWrap(true);
-        content.add(textField);
-        JPanel buttons = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        jPanelContent.add(textField);
+
+        JPanel jPanelButtons = new JPanel(new FlowLayout(FlowLayout.CENTER));
         JButton ctrlC = new JButton("Ctrl+C");
         JButton ctrlX = new JButton("Ctrl+X");
         JButton ctrlV = new JButton("Ctrl+V");
         JButton ctrlZ = new JButton("Ctrl+Z");
+
         Editor editor = this;
-        ctrlC.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                executeCommand(new CopyCommand(editor));
-            }
-        });
-        ctrlX.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                executeCommand(new CutCommand(editor));
-            }
-        });
-        ctrlV.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                executeCommand(new PasteCommand(editor));
-            }
-        });
-        ctrlZ.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                undo();
-            }
-        });
-        buttons.add(ctrlC);
-        buttons.add(ctrlX);
-        buttons.add(ctrlV);
-        buttons.add(ctrlZ);
-        content.add(buttons);
-        frame.setSize(450, 200);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
+
+        ctrlC.addActionListener(e -> executeCommand(new CopyCommand(editor)));
+        ctrlX.addActionListener(e -> executeCommand(new CutCommand(editor)));
+        ctrlV.addActionListener(e -> executeCommand(new PasteCommand(editor)));
+        ctrlZ.addActionListener(e -> undo());
+
+        jPanelButtons.add(ctrlC);
+        jPanelButtons.add(ctrlX);
+        jPanelButtons.add(ctrlV);
+        jPanelButtons.add(ctrlZ);
+
+        jPanelContent.add(jPanelButtons);
+
+        jFrame.setSize(450, 200);
+        jFrame.setLocationRelativeTo(null);
+        jFrame.setVisible(true);
     }
 
     private void executeCommand(Command command) {
@@ -68,11 +54,15 @@ public class Editor {
     }
 
     private void undo() {
-        if (history.isEmpty()) return;
+        if (history.isEmpty()) {
+            return;
+        }
 
         Command command = history.pop();
         if (command != null) {
             command.undo();
         }
+
     }
+
 }

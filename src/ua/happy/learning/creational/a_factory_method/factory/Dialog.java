@@ -9,17 +9,9 @@ import ua.happy.learning.creational.a_factory_method.buttons.Button;
  */
 public abstract class Dialog {
 
-    public void renderWindow() {
-        // ... other code ...
+    public  void renderWindow() {
 
-        Button okButton = createButton();
-        okButton.render();
     }
 
-    /**
-     * Subclasses will override this method in order to create specific button
-     * objects.
-     */
     protected abstract Button createButton();
-
 }

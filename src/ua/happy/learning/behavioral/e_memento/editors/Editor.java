@@ -1,6 +1,5 @@
 package ua.happy.learning.behavioral.e_memento.editors;
 
-
 import ua.happy.learning.behavioral.e_memento.commands.Command;
 import ua.happy.learning.behavioral.e_memento.histories.History;
 import ua.happy.learning.behavioral.e_memento.histories.Memento;
@@ -32,8 +31,7 @@ public class Editor extends JComponent {
     }
 
     public void execute(Command c) {
-        history.push(c, new Memento(this));
-        c.execute();
+
     }
 
     public void undo() {

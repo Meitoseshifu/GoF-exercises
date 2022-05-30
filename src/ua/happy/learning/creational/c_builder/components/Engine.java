@@ -11,23 +11,15 @@ public class Engine {
     }
 
     public void on() {
-        started = true;
+        this.started = true;
     }
 
     public void off() {
-        started = false;
+        this.started = false;
     }
 
     public boolean isStarted() {
-        return started;
-    }
-
-    public void go(double mileage) {
-        if (started) {
-            this.mileage += mileage;
-        } else {
-            System.err.println("Cannot go(), you must start engine first!");
-        }
+        return this.started;
     }
 
     public double getVolume() {
@@ -36,5 +28,13 @@ public class Engine {
 
     public double getMileage() {
         return mileage;
+    }
+
+    public void go(double mileage) {
+        if (isStarted()) {
+            this.mileage += mileage;
+        } else {
+            System.out.println("Start engine.");
+        }
     }
 }

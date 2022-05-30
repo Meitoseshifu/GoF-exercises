@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ * Strategy is a behavioral design pattern that lets you define a family of algorithms, put each of them
+ * into a separate class, and make their objects interchangeable.
+ *
  * Examples from real world:
  *  - java.util.Comparator#compare() called from Collections#sort().
  *  - javax.servlet.http.HttpServlet: service() method, plus all of the doXXX() methods that accept HttpServletRequest
@@ -19,9 +22,9 @@ import java.util.Map;
  *  - javax.servlet.Filter#doFilter()
  */
 public class Demo {
-    private static Map<Integer, Integer> priceOnProducts = new HashMap<>();
-    private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    private static Order order = new Order();
+    private static final Map<Integer, Integer> priceOnProducts = new HashMap<>();
+    private static final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private static final Order order = new Order();
     private static PayStrategy strategy;
 
     static {
@@ -34,7 +37,6 @@ public class Demo {
     public static void main(String[] args) throws IOException {
         while (!order.isClosed()) {
             int cost;
-
             String continueChoice;
             do {
                 System.out.print("Please, select a product:" + "\n" +
@@ -44,10 +46,10 @@ public class Demo {
                         "4 - Memory" + "\n");
                 int choice = Integer.parseInt(reader.readLine());
                 cost = priceOnProducts.get(choice);
-                System.out.print("Count: ");
+                System.out.println("Count: ");
                 int count = Integer.parseInt(reader.readLine());
                 order.setTotalCost(cost * count);
-                System.out.print("Do you wish to continue selecting products? Y/N: ");
+                System.out.println("Do you wish to continue selecting products?");
                 continueChoice = reader.readLine();
             } while (continueChoice.equalsIgnoreCase("Y"));
 
@@ -55,26 +57,20 @@ public class Demo {
                 System.out.println("Please, select a payment method:" + "\n" +
                         "1 - PalPay" + "\n" +
                         "2 - Credit Card");
-                String paymentMethod = reader.readLine();
+                String payentMethod = reader.readLine();
 
                 // Client creates different strategies based on input from
                 // user, application configuration, etc.
-                if (paymentMethod.equals("1")) {
-                    strategy = new PayByPaypal();
-                } else {
-                    strategy = new PayByCreditCard();
-                }
+                strategy = payentMethod.equals("1") ? new PayByPaypal() : new PayByCreditCard();
             }
 
             // Order object delegates gathering payment data to strategy
             // object, since only strategies know what data they need to
             // process a payment.
-            order.processOrder(strategy);
-
             System.out.print("Pay " + order.getTotalCost() + " units or Continue shopping? P/C: ");
             String proceed = reader.readLine();
             if (proceed.equalsIgnoreCase("P")) {
-                // Finally, strategy handles the payment.
+                //Finally, strategy handles the payment
                 if (strategy.pay(order.getTotalCost())) {
                     System.out.println("Payment has been successful.");
                 } else {
@@ -82,6 +78,9 @@ public class Demo {
                 }
                 order.setClosed();
             }
+
         }
+
+
     }
 }

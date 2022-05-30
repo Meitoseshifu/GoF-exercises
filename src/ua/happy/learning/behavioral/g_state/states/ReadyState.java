@@ -3,30 +3,29 @@ package ua.happy.learning.behavioral.g_state.states;
 import ua.happy.learning.behavioral.g_state.ui.Player;
 
 public class ReadyState extends State {
+
     public ReadyState(Player player) {
         super(player);
     }
 
     @Override
     public String onLock() {
-        player.changeState(new LockedState(player));
-        return "Locked...";
+        return null;
     }
 
     @Override
     public String onPlay() {
-        String action = player.startPlayback();
-        player.changeState(new PlayingState(player));
-        return action;
+        return null;
     }
 
     @Override
     public String onNext() {
-        return "Locked...";
+        return null;
     }
 
     @Override
     public String onPrevious() {
-        return "Locked...";
+        return null;
     }
+
 }

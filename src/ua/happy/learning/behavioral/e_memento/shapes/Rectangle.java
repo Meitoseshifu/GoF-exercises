@@ -14,17 +14,16 @@ public class Rectangle extends BaseShape {
 
     @Override
     public int getWidth() {
-        return width;
+        return 0;
     }
 
     @Override
     public int getHeight() {
-        return height;
+        return 0;
     }
 
     @Override
     public void paint(Graphics graphics) {
-        super.paint(graphics);
-        graphics.drawRect(x, y, getWidth() - 1, getHeight() - 1);
     }
+
 }

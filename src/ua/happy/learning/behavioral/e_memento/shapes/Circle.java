@@ -12,17 +12,17 @@ public class Circle extends BaseShape {
 
     @Override
     public int getWidth() {
-        return radius * 2;
+        return 0;
     }
 
     @Override
     public int getHeight() {
-        return radius * 2;
+        return 0;
     }
 
     @Override
     public void paint(Graphics graphics) {
-        super.paint(graphics);
-        graphics.drawOval(x, y, getWidth() - 1, getHeight() - 1);
+
     }
+
 }

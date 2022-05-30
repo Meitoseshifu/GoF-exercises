@@ -10,21 +10,21 @@ import ua.happy.learning.creational.c_builder.components.TripComputer;
  * as a Car. They are not related.
  */
 public class Manual {
-    private final Type type;
-    private final int seats;
-    private final Engine engine;
-    private final Transmission transmission;
-    private final TripComputer tripComputer;
-    private final GPSNavigator gpsNavigator;
+    private Type type;
+    private int seats;
+    private Engine engine;
+    private Transmission transmission;
+    private GPSNavigator gpsNavigator;
+    private TripComputer tripComputer;
 
     public Manual(Type type, int seats, Engine engine, Transmission transmission,
-                  TripComputer tripComputer, GPSNavigator gpsNavigator) {
+                  GPSNavigator gpsNavigator, TripComputer tripComputer) {
         this.type = type;
         this.seats = seats;
         this.engine = engine;
         this.transmission = transmission;
-        this.tripComputer = tripComputer;
         this.gpsNavigator = gpsNavigator;
+        this.tripComputer = tripComputer;
     }
 
     public String print() {
@@ -45,4 +45,5 @@ public class Manual {
         }
         return info;
     }
+
 }

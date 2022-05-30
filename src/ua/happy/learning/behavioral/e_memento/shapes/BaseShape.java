@@ -14,14 +14,22 @@ public abstract class BaseShape implements Shape {
         this.color = color;
     }
 
+    void enableSelectionStyle(Graphics graphics) {
+
+    }
+
+    void disableSelectionStyle(Graphics graphics) {
+
+    }
+
     @Override
     public int getX() {
-        return x;
+        return 0;
     }
 
     @Override
     public int getY() {
-        return y;
+        return 0;
     }
 
     @Override
@@ -36,85 +44,56 @@ public abstract class BaseShape implements Shape {
 
     @Override
     public void drag() {
-        dx = x;
-        dy = y;
-    }
 
-    @Override
-    public void moveTo(int x, int y) {
-        this.x = dx + x;
-        this.y = dy + y;
-    }
-
-    @Override
-    public void moveBy(int x, int y) {
-        this.x += x;
-        this.y += y;
     }
 
     @Override
     public void drop() {
-        this.x = dx;
-        this.y = dy;
+
+    }
+
+    @Override
+    public void moveTo(int x, int y) {
+
+    }
+
+    @Override
+    public void moveBy(int x, int y) {
+
     }
 
     @Override
     public boolean isInsideBounds(int x, int y) {
-        return x > getX() && x < (getX() + getWidth()) &&
-                y > getY() && y < (getY() + getHeight());
+        return false;
     }
 
     @Override
     public Color getColor() {
-        return color;
+        return null;
     }
 
     @Override
     public void setColor(Color color) {
-        this.color = color;
+
     }
 
     @Override
     public void select() {
-        selected = true;
+
     }
 
     @Override
     public void unSelect() {
-        selected = false;
+
     }
 
     @Override
     public boolean isSelected() {
-        return selected;
-    }
-
-    void enableSelectionStyle(Graphics graphics) {
-        graphics.setColor(Color.LIGHT_GRAY);
-
-        Graphics2D g2 = (Graphics2D) graphics;
-        float dash1[] = {2.0f};
-        g2.setStroke(new BasicStroke(1.0f,
-                BasicStroke.CAP_BUTT,
-                BasicStroke.JOIN_MITER,
-                2.0f, dash1, 0.0f));
-    }
-
-    void disableSelectionStyle(Graphics graphics) {
-        graphics.setColor(color);
-        Graphics2D g2 = (Graphics2D) graphics;
-        g2.setStroke(new BasicStroke());
+        return false;
     }
 
     @Override
     public void paint(Graphics graphics) {
-        if (isSelected()) {
-            enableSelectionStyle(graphics);
-        }
-        else {
-            disableSelectionStyle(graphics);
-        }
 
-        // ...
     }
 }

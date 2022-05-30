@@ -5,9 +5,9 @@ public class Video {
     public String title;
     public String data;
 
-    Video(String id, String title) {
+    public Video(String id, String title) {
         this.id = id;
         this.title = title;
-        this.data = "Random video.";
+        this.data = "Random video";
     }
 }

@@ -1,11 +1,8 @@
 package ua.happy.learning.behavioral.e_memento.commands;
 
-
 import ua.happy.learning.behavioral.e_memento.editors.Editor;
-import ua.happy.learning.behavioral.e_memento.shapes.Shape;
 
 import java.awt.*;
-
 
 public class ColorCommand implements Command {
     private Editor editor;
@@ -18,13 +15,11 @@ public class ColorCommand implements Command {
 
     @Override
     public String getName() {
-        return "Colorize: " + color.toString();
+        return null;
     }
 
     @Override
     public void execute() {
-        for (Shape child : editor.getShapes().getSelected()) {
-            child.setColor(color);
-        }
+
     }
 }
